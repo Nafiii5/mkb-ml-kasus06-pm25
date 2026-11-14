@@ -1,0 +1,94 @@
+{
+  "kasus": "Kasus 06 - Prakiraan PM2.5 Bandung (+3 Jam)",
+  "selected_model": "HistGradientBoosting",
+  "feature_columns": [
+    "pm25_ugm3",
+    "suhu_C",
+    "kelembaban_pct",
+    "kecepatan_angin_ms",
+    "curah_hujan_mm",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "month_sin",
+    "month_cos",
+    "is_weekend",
+    "wind_u",
+    "wind_v",
+    "pm25_lag_1h",
+    "pm25_lag_2h",
+    "pm25_lag_3h",
+    "pm25_lag_6h",
+    "pm25_lag_12h",
+    "pm25_lag_24h",
+    "pm25_diff_1h",
+    "pm25_diff_3h",
+    "pm25_diff_24h",
+    "pm25_roll_mean_3h",
+    "pm25_roll_std_3h",
+    "pm25_roll_mean_6h",
+    "pm25_roll_max_6h",
+    "suhu_diff_3h",
+    "kelembaban_diff_3h",
+    "hujan_roll_3h",
+    "city_pm25_mean",
+    "city_pm25_max",
+    "pm25_rel_city",
+    "stasiun_Dago",
+    "stasiun_Soekarno-Hatta",
+    "stasiun_Cibeureum",
+    "stasiun_Antapani",
+    "stasiun_Ujungberung"
+  ],
+  "unhealthy_threshold_ugm3": 55.0,
+  "split_dates": {
+    "train": "< 2026-03-01",
+    "validation": "2026-03-01 s.d. 2026-04-30",
+    "test": ">= 2026-05-01"
+  },
+  "validation_metrics": {
+    "Persistence_Baseline": {
+      "mae_ugm3": 6.258,
+      "unhealthy_recall_pct": 18.6,
+      "unhealthy_precision_pct": 18.6,
+      "unhealthy_f1": 0.186,
+      "true_unhealthy_hours": 43,
+      "caught_unhealthy_hours": 8
+    },
+    "Ridge_Regression": {
+      "mae_ugm3": 4.927,
+      "unhealthy_recall_pct": 0.0,
+      "unhealthy_precision_pct": 0.0,
+      "unhealthy_f1": 0.0,
+      "true_unhealthy_hours": 43,
+      "caught_unhealthy_hours": 0
+    },
+    "HistGradientBoosting": {
+      "mae_ugm3": 4.617,
+      "unhealthy_recall_pct": 9.3,
+      "unhealthy_precision_pct": 57.14,
+      "unhealthy_f1": 0.16,
+      "true_unhealthy_hours": 43,
+      "caught_unhealthy_hours": 4
+    }
+  },
+  "test_metrics": {
+    "Persistence_Baseline": {
+      "mae_ugm3": 6.513,
+      "unhealthy_recall_pct": 29.88,
+      "unhealthy_precision_pct": 30.25,
+      "unhealthy_f1": 0.3006,
+      "true_unhealthy_hours": 241,
+      "caught_unhealthy_hours": 72
+    },
+    "HistGradientBoosting": {
+      "mae_ugm3": 4.585,
+      "unhealthy_recall_pct": 29.46,
+      "unhealthy_precision_pct": 68.93,
+      "unhealthy_f1": 0.4128,
+      "true_unhealthy_hours": 241,
+      "caught_unhealthy_hours": 71
+    }
+  }
+}
